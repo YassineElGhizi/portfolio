@@ -11,5 +11,49 @@
     "English",
     "French"
   ],
-  "freelance": true
+  "freelance": true,
+  "skills": [
+    {
+      "programing_languages": [
+        {
+          "name": "Python",
+          "skill": 95
+        },
+        {
+          "name": "JavaScript",
+          "skill": 80
+        },
+        {
+          "name": "Java",
+          "skill": 75
+        },
+        {
+          "name": "C",
+          "skill": 70
+        },
+        {
+          "name": "PHP",
+          "skill": 80
+        }
+      ],
+      "backend": [
+        {
+          "name": "ExpressJs",
+          "skill": 75
+        },
+        {
+          "name": "FastAPI",
+          "skill": 85
+        },
+        {
+          "name": "Flask",
+          "skill": 85
+        },
+        {
+          "name": "Laravel",
+          "skill": 95
+        }
+      ]
+    }
+  ]
 }
