@@ -1,0 +1,15 @@
+{
+  "first_name": "Yassine",
+  "last_name": "EL GHIZI",
+  "description": "I am a Data & Backend Engineer. I can provide robust data pipelines in both batch and streaming environment.I also make reliable APIs schemas that are fast thanks to the optimization, caching and databases indexing ...",
+  "profession": "Data & Backend engineer",
+  "phone": "+212 699 41 98 62",
+  "email": "yassine_data@yassineelghizi.com",
+  "city": "Tangier",
+  "country": "Morocco",
+  "language": [
+    "English",
+    "French"
+  ],
+  "freelance": true
+}
