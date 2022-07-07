@@ -168,10 +168,6 @@
             </div>
         </div>
 
-        <br>
-        <br>
-        <br>
-
         <div class="row">
             <div class="col-lg-12">
                 <div class="st-skill-wrap">
@@ -180,11 +176,11 @@
                         <div class="st-skill-subtitle">
                             <h5>
                                 {% for s in me.skills[0]["backend"] -%}
-                                <img src="{{ url_for('static', path=s["img"]) }}"
-                                style="width: 40px; height:30px;filter: invert(100%);">
+                                <img src="{{ url_for('static', path=s["img"]) }}" style="width: 40px;
+                                height:30px;filter: invert(100%);">
                                 &nbsp;&nbsp;&nbsp;
                                 {{s["name"]}}
-                                 &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 {% endfor %}
                             </h5>
                         </div>
@@ -192,18 +188,83 @@
                 </div>
             </div>
 
-            <div class="col-lg-12">
+            <div class="col-lg-12 mt-5">
                 <div class="st-skill-wrap">
                     <div class="st-skill-heading">
-                        <h2 class="st-skill-title">Date Engineering</h2>
+                        <h2 class="st-skill-title">
+                            Database Administration
+                            <img src="{{ url_for('static', path=me.skills[0]["data_bases"]["logo"]) }}"
+                            style="width: 5rem; height:2rem;filter: invert(100%);">
+                        </h2>
                         <div class="st-skill-subtitle">
                             <h5>
-                                {% for s in me.skills[0]["backend"] -%}
-                                <img src="{{ url_for('static', path=s["img"]) }}"
-                                style="width: 100px; height:80px">
+                                {% for s in me.skills[0]["data_bases"]["skills"] -%}
                                 &nbsp;&nbsp;&nbsp;
-                                {{s["name"]}}
-                                 &nbsp;&nbsp;&nbsp;
+                                {{s}}
+                                &nbsp;&nbsp;&nbsp;
+                                {% endfor %}
+                            </h5>
+                        </div>
+                    </div><!-- .st-skill-heading -->
+                </div>
+            </div>
+
+            <div class="col-lg-12 mt-5">
+                <div class="st-skill-wrap">
+                    <div class="st-skill-heading">
+                        <h2 class="st-skill-title">
+                            Database Engineering
+                            <img src="{{ url_for('static', path=me.skills[0]["data_engineering"]["logo"]) }}"
+                            style="width: 5rem; height:2rem;filter: invert(100%);">
+                        </h2>
+                        <div class="st-skill-subtitle">
+                            <h5>
+                                {% for s in me.skills[0]["data_engineering"]["skills"] -%}
+                                &nbsp;&nbsp;&nbsp;
+                                {{s}}
+                                &nbsp;&nbsp;&nbsp;
+                                {% endfor %}
+                            </h5>
+                        </div>
+                    </div><!-- .st-skill-heading -->
+                </div>
+            </div>
+
+            <div class="col-lg-12 mt-5">
+                <div class="st-skill-wrap">
+                    <div class="st-skill-heading">
+                        <h2 class="st-skill-title">
+                            DevOps
+                            <img src="{{ url_for('static', path=me.skills[0]["devops"]["logo"]) }}"
+                            style="width: 5rem; height:2rem;filter: invert(100%);">
+                        </h2>
+                        <div class="st-skill-subtitle">
+                            <h5>
+                                {% for s in me.skills[0]["devops"]["skills"] -%}
+                                &nbsp;&nbsp;&nbsp;
+                                {{s}}
+                                &nbsp;&nbsp;&nbsp;
+                                {% endfor %}
+                            </h5>
+                        </div>
+                    </div><!-- .st-skill-heading -->
+                </div>
+            </div>
+
+            <div class="col-lg-12 mt-5">
+                <div class="st-skill-wrap">
+                    <div class="st-skill-heading">
+                        <h2 class="st-skill-title">
+                            Others
+                            <img src="{{ url_for('static', path=me.skills[0]["others"]["logo"]) }}"
+                            style="width: 5rem; height:2rem;filter: invert(100%);">
+                        </h2>
+                        <div class="st-skill-subtitle">
+                            <h5>
+                                {% for s in me.skills[0]["others"]["skills"] -%}
+                                &nbsp;&nbsp;&nbsp;
+                                {{s}}
+                                &nbsp;&nbsp;&nbsp;
                                 {% endfor %}
                             </h5>
                         </div>
@@ -253,42 +314,25 @@
             <div class="col-lg-6">
                 <div class="st-resume-wrap">
                     <div class="st-resume-heading">
-                        <img src="assets/img/icon/resume-icon1.png" alt="resume-icon">
+                        <img src="{{ url_for('static', path='images/resume-icon1.png') }}" alt="">
                         <h2 class="st-resume-heading-title">Experience</h2>
                     </div>
 
                     <div class="st-height-b50 st-height-lg-b30"></div>
-
                     <div class="st-resume-timeline-wrap">
-                        <div class="st-resume-timeline">
-                            <h3 class="st-resume-timeline-title">Senior UX/UI Designer</h3>
-                            <div class="st-resume-timeline-duration">Jan 2020 - Present</div>
-                            <h4 class="st-resume-timeline-subtitle">Bergnaum, Hills and Howe</h4>
-                            <div class="st-resume-timeline-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                    ligula nulla, tincidunt id faucibus sed, suscipit feugiat turpis.</p>
+                        {% for s in me.experience -%}
+                            <div class="st-resume-timeline">
+                                <h3 class="st-resume-timeline-title">{{s["title"]}}</h3>
+                                <div class="st-resume-timeline-duration">{{s["duration"]}}</div>
+                                <h4 class="st-resume-timeline-subtitle">{{s["enterprise"]}}, {{s["city"]}}</h4>
+                                <div class="st-resume-timeline-text">
+                                    <p>{{s["desc"] | safe }}</p>
+                                </div>
                             </div>
-                        </div> <!-- st-resume-timeline -->
-                        <div class="st-height-b50 st-height-lg-b30"></div>
-                        <div class="st-resume-timeline">
-                            <h3 class="st-resume-timeline-title">Product Designer</h3>
-                            <div class="st-resume-timeline-duration">Jan 2016 - December 2019</div>
-                            <h4 class="st-resume-timeline-subtitle">Langosh, Sipes and Raynor</h4>
-                            <div class="st-resume-timeline-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                    ligula nulla, tincidunt id faucibus sed, suscipit feugiat turpis.</p>
-                            </div>
-                        </div> <!-- st-resume-timeline -->
-                        <div class="st-height-b50 st-height-lg-b30"></div>
-                        <div class="st-resume-timeline">
-                            <h3 class="st-resume-timeline-title">UI/UX Designer</h3>
-                            <div class="st-resume-timeline-duration">Jan 2014 - December 2015</div>
-                            <h4 class="st-resume-timeline-subtitle">Strosin, Maggio and Homenick</h4>
-                            <div class="st-resume-timeline-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                    ligula nulla, tincidunt id faucibus sed, suscipit feugiat turpis.</p>
-                            </div>
-                        </div> <!-- st-resume-timeline -->
+                            <div class="st-height-b50 st-height-lg-b30"></div>
+                        {% endfor %}
+
+
                     </div>
                 </div>
             </div>

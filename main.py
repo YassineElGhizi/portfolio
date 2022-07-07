@@ -30,4 +30,4 @@ async def index(request: Request):
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", reload=True, workers=4)
+    uvicorn.run("main:app", reload=True)

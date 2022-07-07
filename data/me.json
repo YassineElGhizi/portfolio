@@ -51,14 +51,72 @@
         },
         {
           "name": "Laravel",
-          "img": "images/laravel-brands.svg"
+          "img": "images/php-brands.svg"
         }
       ],
-      "data_engineering" : [
-        {
-          "name" : "Web Scraping"
-        }
-      ]
+      "data_bases": {
+        "logo": "images/database-solid.svg",
+        "skills": [
+          "Mysql",
+          "PostgreSQL",
+          "Microsoft SQL Server",
+          "Reids",
+          "MongoDB"
+        ]
+      },
+      "data_engineering": {
+        "logo": "images/file-import-solid.svg",
+        "skills": [
+          "Web Scraping",
+          "Apache Kafka",
+          "Apache Airflow",
+          "ETL Data pipelines",
+          "ElasticSearch",
+          "Kibana",
+          "RedisSearch"
+        ]
+      },
+      "devops": {
+        "logo": "images/server-solid.svg",
+        "skills": [
+          "Nginx",
+          "Script Shell",
+          "Docker"
+        ]
+      },
+      "others": {
+        "logo": "images/plus-solid.svg",
+        "skills": [
+          "C",
+          "UML",
+          "Git",
+          "VueJs",
+          "Nuxt"
+        ]
+      }
+    }
+  ],
+  "experience": [
+    {
+      "title": "End Of Study Internship - Master",
+      "duration": "5 months",
+      "city": "Tangier Morocco",
+      "enterprise": "Tingis Web",
+      "desc": "-Design, study and choice of: technologies,caching, indexing and backup strategies.<br/>-Development, Automation and planning with Apache Airflow an: ETL Data pipelines (web scraping and Amazon S3), and a data pipeline for data migration from one server to another.<br/>-Backend development and unit testing of an API for data migration with FastAPI.<br/>-Backend development of a web application API with Laravel.<br/>-API performance optimization with Redis and database indexing.-Deployment of the system to the cloud.<br/>-Extra : Development and deployment of an advanced data pipelines: image processing (watermark removal)."
+    },
+    {
+      "title": "Summer Internship",
+      "duration": "3 months",
+      "city": "Tangier Morocco",
+      "enterprise": "Chakir Group",
+      "desc": "-Development of web scrapers, and an API in Flask to store the scraping results.<br/>-Development of a Web Application in Laravel to control the scraping process as well as the review and correction of the results."
+    },
+    {
+      "title": "End Of Study Internship - Bachelor",
+      "duration": "5 months",
+      "city": "Tangier Morocco",
+      "enterprise": "Faculty of Science and Technology",
+      "desc": "Design and development of an advanced web application (audio exchange, barcode scanner) with :<br/>ReactJs - Laravel API- MySQL."
     }
   ]
 }
