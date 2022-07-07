@@ -4,7 +4,7 @@
   "description": "I am a Backend & Data Engineer. I can provide robust data pipelines in both batch and streaming environment.I also make reliable APIs schemas that are fast thanks to the optimization, caching and databases indexing ...",
   "profession": "Data & Backend engineer",
   "phone": "+212 699 41 98 62",
-  "email": "yassine_data@yassineelghizi.com",
+  "email": "yassine.elghizi@etu.uae.ac.ma",
   "city": "Tangier",
   "country": "Morocco",
   "language": [
@@ -117,6 +117,42 @@
       "city": "Tangier Morocco",
       "enterprise": "Faculty of Science and Technology",
       "desc": "Design and development of an advanced web application (audio exchange, barcode scanner) with :<br/>ReactJs - Laravel API- MySQL."
+    }
+  ],
+  "education": [
+    {
+      "title": "Master Big Data",
+      "duration": "2020 - 2022",
+      "city": "Tangier Morocco",
+      "enterprise": "Faculty of Science and Technology",
+      "desc": ""
+    },
+    {
+      "title": "Bachelor Computer Science",
+      "duration": "2016 - 2020",
+      "city": "Tangier Morocco",
+      "enterprise": "Faculty of Science and Technology",
+      "desc": ""
+    }
+  ],
+  "projects": [
+    {
+      "title": "Fake_News_Detection",
+      "ref": "IA/Data Engineering",
+      "link": "https://github.com/YassineElGhizi/Fake_News_Detection",
+      "image": "https://user-images.githubusercontent.com/86019502/144763708-6c1d922f-9178-4674-98e5-929fa89176c6.png"
+    },
+    {
+      "title": "Content_based_image_search_gabor_filters",
+      "ref": "Deep Learning",
+      "link": "https://github.com/YassineElGhizi/content_based_image_search_gabor_filters",
+      "image": "https://user-images.githubusercontent.com/86019502/147650951-26f9e0a6-56e5-440a-bb55-0a37977bb6e5.jpg"
+    },
+    {
+      "title": "Express_complet_rest_api",
+      "ref": "Backend dev",
+      "link": "https://github.com/YassineElGhizi/express_complet_rest_api",
+      "image": "https://user-images.githubusercontent.com/86019502/175571375-2a56f5e1-904a-4d5b-bd32-5bcd94dbfee6.png"
     }
   ]
 }

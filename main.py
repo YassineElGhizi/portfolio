@@ -6,6 +6,9 @@ from fastapi.responses import HTMLResponse
 import json
 from models.models import Me
 from fastapi.middleware.cors import CORSMiddleware
+from datetime import datetime
+from schemas.schemas import contact
+from helpers import created_at
 
 origins = ["*"]
 
@@ -26,7 +29,20 @@ async def index(request: Request):
     with open('./data/me.json', 'r', encoding='utf-8') as f:
         tmp = json.loads(f.read())
         me = Me(**tmp)
-    return templates.TemplateResponse("index.html", {'request': request, 'me': me})
+    return templates.TemplateResponse("index.html", {'request': request, 'me': me, 'now': datetime.utcnow()})
+
+
+# @app.post("/contact", status_code=201)
+# async def post(contact: contact):
+#     print(f'contact = {contact}')
+#     print('Writing !!')
+#     with open(f'./messages/{created_at}.txt', 'w', encoding='utf8') as fm:
+#         fm.write(
+#             f'name={contact.name} :: email={contact.email} :: subject={contact.subject} :: message={contact.message}')
+#     print('End !')
+#     return {
+#         'message': 'Your message was saved successfully'
+#     }
 
 
 if __name__ == "__main__":

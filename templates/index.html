@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="{{ url_for('static', path='assets/css/lightgallery.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', path='assets/css/animate.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', path='assets/css/style.css') }}"/>
+
+    <script src="{{ url_for('static', path='assets/js/axios.min.js') }}"></script>
 </head>
 
 <body id="home" class="st-get-sidebar">
@@ -271,27 +273,6 @@
                     </div><!-- .st-skill-heading -->
                 </div>
             </div>
-
-            <!-- Progressbar -->
-            <!--            <div class="col-lg-6">-->
-            <!--                <div class="st-height-b0 st-height-lg-b30"></div>-->
-            <!--                <div class="st-progressbar-wrap">-->
-            <!--                    {% for s in me.skills[0]["backend"] -%}-->
-            <!--                    <div class="st-single-progressbar">-->
-            <!--                        <div class="st-progressbar-heading">-->
-            <!--                            <h3 class="st-progressbar-title">{{s["name"]}}</h3>-->
-            <!--                            <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s"-->
-            <!--                                 data-wow-delay="0.5s">{{s["skill"]}}%-->
-            <!--                            </div>-->
-            <!--                        </div>-->
-            <!--                        <div class="st-progressbar" data-progress="{{s['skill']}}">-->
-            <!--                            <div class="st-progressbar-in wow fadeInLeft"></div>-->
-            <!--                        </div>-->
-            <!--                    </div>&lt;!&ndash; .st-single-progressbar &ndash;&gt;-->
-            <!--                    <div class="st-height-b30 st-height-lg-b20"></div>-->
-            <!--                    {% endfor %}-->
-            <!--                </div>-->
-            <!--            </div>-->
         </div>
 
     </div>
@@ -343,41 +324,23 @@
                 <div class="st-height-b0 st-height-lg-b50"></div>
                 <div class="st-resume-wrap">
                     <div class="st-resume-heading">
-                        <img src="assets/img/icon/resume-icon2.png" alt="resume-icon">
+                        <img src="{{ url_for('static', path='images/resume-icon2.png') }}" alt="">
                         <h2 class="st-resume-heading-title">Education</h2>
                     </div>
                     <div class="st-height-b50 st-height-lg-b30"></div>
 
                     <div class="st-resume-timeline-wrap">
+                        {% for s in me.education -%}
                         <div class="st-resume-timeline">
-                            <h3 class="st-resume-timeline-title">Master of Computer Science</h3>
-                            <div class="st-resume-timeline-duration">2015 - 2016</div>
-                            <h4 class="st-resume-timeline-subtitle">University of XYZ</h4>
+                            <h3 class="st-resume-timeline-title">{{s["title"]}}</h3>
+                            <div class="st-resume-timeline-duration">{{s["duration"]}}</div>
+                            <h4 class="st-resume-timeline-subtitle">{{s["enterprise"]}}, {{s["city"]}}</h4>
                             <div class="st-resume-timeline-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                    ligula nulla, tincidunt id faucibus sed, suscipit feugiat turpis.</p>
+                                <p>{{s["desc"] | safe }}</p>
                             </div>
-                        </div> <!-- st-resume-timeline -->
+                        </div>
                         <div class="st-height-b50 st-height-lg-b30"></div>
-                        <div class="st-resume-timeline">
-                            <h3 class="st-resume-timeline-title">Bachelor of Computer Science</h3>
-                            <div class="st-resume-timeline-duration">2010 - 2014</div>
-                            <h4 class="st-resume-timeline-subtitle">University of ABC</h4>
-                            <div class="st-resume-timeline-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                    ligula nulla, tincidunt id faucibus sed, suscipit feugiat turpis.</p>
-                            </div>
-                        </div> <!-- st-resume-timeline -->
-                        <div class="st-height-b50 st-height-lg-b30"></div>
-                        <div class="st-resume-timeline">
-                            <h3 class="st-resume-timeline-title">Diploma in Computer Science</h3>
-                            <div class="st-resume-timeline-duration">2006 - 2010</div>
-                            <h4 class="st-resume-timeline-subtitle">XYZ Institution</h4>
-                            <div class="st-resume-timeline-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                                    ligula nulla, tincidunt id faucibus sed, suscipit feugiat turpis.</p>
-                            </div>
-                        </div> <!-- st-resume-timeline -->
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -392,114 +355,36 @@
     <div class="st-height-b100 st-height-lg-b80"></div>
     <div class="container">
         <div class="st-section-heading st-style1">
-            <h4 class="st-section-heading-title">PORTFOLIOS</h4>
-            <h2 class="st-section-heading-subtitle">PORTFOLIOS</h2>
+            <h4 class="st-section-heading-title">Personal Projects (Github)</h4>
+            <h2 class="st-section-heading-subtitle">Projects</h2>
         </div>
         <div class="st-height-b25 st-height-lg-b25"></div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6">
+            {% for s in me.projects -%}
+                <div class="col-lg-4 col-md-6">
                 <div class="st-portfolio-single st-style1 st-lightgallery">
                     <div class="st-portfolio-item">
-                        <a href="assets/img/portfolio/portfolio1_lg.jpg" class="st-portfolio st-zoom st-lightbox-item">
+                        <a href="{{s.image}}" class="st-portfolio st-zoom st-lightbox-item">
                             <div class="st-portfolio-img st-zoom-in">
-                                <img src="assets/img/portfolio/portfolio1.jpg" alt="portfolio">
+                                <img src="{{s.image}}" alt="portfolio" >
                             </div>
                             <div class="st-portfolio-item-hover">
                                 <i class="fas fa-plus-circle"></i>
-                                <h5>Product Design</h5>
-                                <p>Design / Marketing</p>
+                                <h5>{{s.title}}</h5>
+                                <p>{{s.ref}}</p>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="st-portfolio-single st-style1 st-lightgallery">
-                    <div class="st-portfolio-item">
-                        <a href="assets/img/portfolio/portfolio2_lg.jpg" class="st-portfolio st-zoom st-lightbox-item">
-                            <div class="st-portfolio-img st-zoom-in">
-                                <img src="assets/img/portfolio/portfolio2.jpg" alt="portfolio">
-                            </div>
-                            <div class="st-portfolio-item-hover">
-                                <i class="fas fa-plus-circle"></i>
-                                <h5>Product Design</h5>
-                                <p>Design / Marketing</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="st-portfolio-single st-style1 st-lightgallery">
-                    <div class="st-portfolio-item">
-                        <a href="assets/img/portfolio/portfolio3_lg.jpg" class="st-portfolio st-zoom st-lightbox-item">
-                            <div class="st-portfolio-img st-zoom-in">
-                                <img src="assets/img/portfolio/portfolio3.jpg" alt="portfolio">
-                            </div>
-                            <div class="st-portfolio-item-hover">
-                                <i class="fas fa-plus-circle"></i>
-                                <h5>Product Design</h5>
-                                <p>Design / Marketing</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="st-portfolio-single st-style1 st-lightgallery">
-                    <div class="st-portfolio-item">
-                        <a href="assets/img/portfolio/portfolio4_lg.jpg" class="st-portfolio st-zoom st-lightbox-item">
-                            <div class="st-portfolio-img st-zoom-in">
-                                <img src="assets/img/portfolio/portfolio4.jpg" alt="portfolio">
-                            </div>
-                            <div class="st-portfolio-item-hover">
-                                <i class="fas fa-plus-circle"></i>
-                                <h5>Product Design</h5>
-                                <p>Design / Marketing</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="st-portfolio-single st-style1 st-lightgallery">
-                    <div class="st-portfolio-item">
-                        <a href="assets/img/portfolio/portfolio5_lg.jpg" class="st-portfolio st-zoom st-lightbox-item">
-                            <div class="st-portfolio-img st-zoom-in">
-                                <img src="assets/img/portfolio/portfolio5.jpg" alt="portfolio">
-                            </div>
-                            <div class="st-portfolio-item-hover">
-                                <i class="fas fa-plus-circle"></i>
-                                <h5>Product Design</h5>
-                                <p>Design / Marketing</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="st-portfolio-single st-style1 st-lightgallery">
-                    <div class="st-portfolio-item">
-                        <a href="assets/img/portfolio/portfolio6_lg.jpg" class="st-portfolio st-zoom st-lightbox-item">
-                            <div class="st-portfolio-img st-zoom-in">
-                                <img src="assets/img/portfolio/portfolio6.jpg" alt="portfolio">
-                            </div>
-                            <div class="st-portfolio-item-hover">
-                                <i class="fas fa-plus-circle"></i>
-                                <h5>Product Design</h5>
-                                <p>Design / Marketing</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-12 text-center">
-                <div class="st-portfolio-btn">
-                    <a href="#" class="st-btn st-style1 st-color1">Load More</a>
-                </div>
-            </div>
+            {% endfor %}
+<!--            <div class="col-lg-12 text-center">-->
+<!--                <div class="st-portfolio-btn">-->
+<!--                    <a href="#" class="st-btn st-style1 st-color1">Load More</a>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
     <div class="st-height-b100 st-height-lg-b80"></div>
@@ -524,7 +409,7 @@
             <div class="col-lg-6">
                 <h3 class="st-contact-title">Just say Hello</h3>
                 <div id="st-alert"></div>
-                <form action="#" method="POST" class="st-contact-form" id="contact-form">
+<!--                <form  class="st-contact-form">-->
                     <div class="st-form-field">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -538,43 +423,43 @@
                         <textarea cols="30" rows="10" id="msg" name="msg" placeholder="Your Message"
                                   required></textarea>
                     </div>
-                    <button class="st-btn st-style1 st-color1" type="submit" id="submit" name="submit">Send message
+                    <button class="st-btn st-style1 st-color1" onclick="mysend()">Send message
                     </button>
-                </form>
+<!--                </form>-->
             </div>
             <div class="st-height-b0 st-height-lg-b30"></div>
 
             <div class="col-lg-6">
                 <div class="st-height-b0 st-height-lg-b40"></div>
                 <h3 class="st-contact-title">Contact Info</h3>
-                <div class="st-contact-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula nulla tincidunt id faucibus sed
-                    suscipit feugiat.
-                </div>
+<!--                <div class="st-contact-text">-->
+<!--                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ligula nulla tincidunt id faucibus sed-->
+<!--                    suscipit feugiat.-->
+<!--                </div>-->
                 <div class="st-contact-info-wrap">
                     <div class="st-single-contact-info">
                         <i class="fas fa-envelope"></i>
                         <div class="st-single-info-details">
                             <h4>Email</h4>
-                            <a href="#">devis@example.com</a>
-                            <a href="#">info@support.com</a>
+                            <a href="#">{{me.email}}</a>
+<!--                            <a href="#">info@support.com</a>-->
                         </div>
                     </div>
                     <div class="st-single-contact-info">
                         <i class="fas fa-phone-alt"></i>
                         <div class="st-single-info-details">
                             <h4>Phone</h4>
-                            <span>+1 876-369-9009</span>
-                            <span>+1 213-519-1786</span>
+                            <span>{{me.phone}}</span>
+<!--                            <span>+1 213-519-1786</span>-->
                         </div>
                     </div>
-                    <div class="st-single-contact-info">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="st-single-info-details">
-                            <h4>Address</h4>
-                            <span>2661 High Meadow Lane Bear Creek, <br>Olancha, KY 93544</span>
-                        </div>
-                    </div>
+<!--                    <div class="st-single-contact-info">-->
+<!--                        <i class="fas fa-map-marker-alt"></i>-->
+<!--                        <div class="st-single-info-details">-->
+<!--                            <h4>Address</h4>-->
+<!--                            <span>2661 High Meadow Lane Bear Creek, <br>Olancha, KY 93544</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div class="st-social-info">
                         <div class="st-social-text">Visite my social profile and get connected</div>
                         <div class="st-social-link">
@@ -608,7 +493,7 @@
 <footer>
     <div class="container">
         <div class="st-copyright-wrap text-center">
-            <div class="st-copyright-text">© 2020. Designed by Laralink. All right reserved.</div>
+            <div class="st-copyright-text">© {{ now.year }}. {{me.last_name}} {{me.first_name}}.</div>
         </div>
     </div>
 </footer>
@@ -621,5 +506,27 @@
 <script src="{{ url_for('static', path='assets/js/wow.min.js') }}"></script>
 <script src="{{ url_for('static', path='assets/js/particles.min.js') }}"></script>
 <script src="{{ url_for('static', path='assets/js/main.js') }}"></script>
+
+<script>
+    const axios = require('axios').default;
+    let domain_name = 'http://localhost:8000/'
+    let mysend = () => {
+        alert('porfolio')
+        let name = document.getElementById('name')
+        let email = document.getElementById('email')
+        let subject = document.getElementById('subject')
+        let message= document.getElementById('msg')
+        alert(name)
+        alert(email)
+        alert(subject)
+        alert(message)
+        axios.post('http://localhost:8000/contact' , {
+          "name":name,
+          "email":email,
+          "subject":subject,
+          "message": message
+        })
+    }
+</script>
 </body>
 </html>

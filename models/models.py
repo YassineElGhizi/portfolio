@@ -14,10 +14,12 @@ class Me:
     freelance: bool
     skills: List
     experience: List
+    education: List
+    projects: List
 
     def __init__(self, first_name: str, last_name: str, description: str, profession: str, phone: str,
                  email: str, city: str, country: str, language: List[str], freelance: bool,
-                 skills: List, experience: List) -> None:
+                 skills: List, experience: List, education: List, projects: List) -> None:
         self.first_name = first_name
         self.last_name = last_name
         self.description = description
@@ -30,6 +32,8 @@ class Me:
         self.freelance = freelance
         self.skills = skills
         self.experience = experience
+        self.education = education
+        self.projects = projects
 
     @property
     def full_addr(self) -> str:
