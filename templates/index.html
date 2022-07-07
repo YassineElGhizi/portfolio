@@ -7,11 +7,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
     <!-- Page Title -->
     <title>EL GHIZI Yassine - Portfolio</title>
     <!-- Favicon Icon -->
     <link rel="icon" href="assets/img/favicon.png"/>
     <!-- Stylesheets -->
+
     <link rel="stylesheet" href="{{ url_for('static', path='assets/css/bootstrap.min.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', path='assets/css/fontawesome.css') }}"/>
     <link rel="stylesheet" href="{{ url_for('static', path='assets/css/slick.css') }}"/>
@@ -180,11 +183,11 @@
                         <div class="st-skill-subtitle">
                             <h5>
                                 {% for s in me.skills[0]["backend"] -%}
-                                <img src="{{ url_for('static', path=s["img"]) }}"
+                                <img src="{{ url_for('static', path=s[" img"]) }}"
                                 style="width: 40px; height:30px;filter: invert(100%);">
                                 &nbsp;&nbsp;&nbsp;
                                 {{s["name"]}}
-                                 &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 {% endfor %}
                             </h5>
                         </div>
@@ -199,11 +202,11 @@
                         <div class="st-skill-subtitle">
                             <h5>
                                 {% for s in me.skills[0]["backend"] -%}
-                                <img src="{{ url_for('static', path=s["img"]) }}"
+                                <img src="{{ url_for('static', path=s[" img"]) }}"
                                 style="width: 100px; height:80px">
                                 &nbsp;&nbsp;&nbsp;
                                 {{s["name"]}}
-                                 &nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 {% endfor %}
                             </h5>
                         </div>
