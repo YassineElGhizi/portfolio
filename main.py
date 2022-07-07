@@ -7,10 +7,7 @@ import json
 from models.models import Me
 from fastapi.middleware.cors import CORSMiddleware
 
-origins = [
-    "http://yassineelghizi.me",
-    "http://www.yassineelghizi.me",
-]
+origins = ["*"]
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
