@@ -60,7 +60,7 @@
           "Mysql",
           "PostgreSQL",
           "Microsoft SQL Server",
-          "Reids",
+          "Redis",
           "MongoDB"
         ]
       },
