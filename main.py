@@ -10,8 +10,6 @@ from fastapi.middleware.cors import CORSMiddleware
 origins = ["*"]
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -19,6 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.mount("/static", StaticFiles(directory="static"), name="static")
+templates = Jinja2Templates(directory="templates")
 
 
 @app.get("/", response_class=HTMLResponse)
