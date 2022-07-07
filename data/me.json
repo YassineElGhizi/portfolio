@@ -1,7 +1,7 @@
 {
   "first_name": "Yassine",
   "last_name": "EL GHIZI",
-  "description": "I am a Data & Backend Engineer. I can provide robust data pipelines in both batch and streaming environment.I also make reliable APIs schemas that are fast thanks to the optimization, caching and databases indexing ...",
+  "description": "I am a Backend & Data Engineer. I can provide robust data pipelines in both batch and streaming environment.I also make reliable APIs schemas that are fast thanks to the optimization, caching and databases indexing ...",
   "profession": "Data & Backend engineer",
   "phone": "+212 699 41 98 62",
   "email": "yassine_data@yassineelghizi.com",
@@ -33,25 +33,30 @@
         },
         {
           "name": "PHP",
-          "skill": 80
+          "skill": 75
         }
       ],
       "backend": [
         {
           "name": "ExpressJs",
-          "skill": 75
+          "img": "images/js-brands.svg"
         },
         {
           "name": "FastAPI",
-          "skill": 85
+          "img": "images/python-brands.svg"
         },
         {
           "name": "Flask",
-          "skill": 85
+          "img": "images/python-brands.svg"
         },
         {
           "name": "Laravel",
-          "skill": 95
+          "img": "images/laravel-brands.svg"
+        }
+      ],
+      "data_engineering" : [
+        {
+          "name" : "Web Scraping"
         }
       ]
     }

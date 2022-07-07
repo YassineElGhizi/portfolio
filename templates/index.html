@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Laralink">
     <!-- Page Title -->
-    <title>Davis - Personal Portfolio</title>
+    <title>EL GHIZI Yassine - Portfolio</title>
     <!-- Favicon Icon -->
     <link rel="icon" href="assets/img/favicon.png"/>
     <!-- Stylesheets -->
@@ -27,7 +27,9 @@
         <div class="container">
             <div class="st-main-header-in">
                 <div class="st-main-header-left">
-                    <div class="st-header-author"><img src="{{ url_for('static', path='images/me.png') }}" alt=""></div>
+                    <div class="st-header-author">
+                        <img src="{{ url_for('static', path='images/me.png') }}" alt="">
+                    </div>
                 </div>
                 <div class="st-main-header-right">
                     <div class="st-nav">
@@ -171,38 +173,64 @@
         <br>
 
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
                 <div class="st-skill-wrap">
                     <div class="st-skill-heading">
                         <h2 class="st-skill-title">Backend Development</h2>
                         <div class="st-skill-subtitle">
+                            <h5>
+                                {% for s in me.skills[0]["backend"] -%}
+                                <img src="{{ url_for('static', path=s["img"]) }}"
+                                style="width: 40px; height:30px;filter: invert(100%);">
+                                &nbsp;&nbsp;&nbsp;
+                                {{s["name"]}}
+                                 &nbsp;&nbsp;&nbsp;
+                                {% endfor %}
+                            </h5>
+                        </div>
+                    </div><!-- .st-skill-heading -->
+                </div>
+            </div>
+
+            <div class="col-lg-12">
+                <div class="st-skill-wrap">
+                    <div class="st-skill-heading">
+                        <h2 class="st-skill-title">Date Engineering</h2>
+                        <div class="st-skill-subtitle">
+                            <h5>
+                                {% for s in me.skills[0]["backend"] -%}
+                                <img src="{{ url_for('static', path=s["img"]) }}"
+                                style="width: 100px; height:80px">
+                                &nbsp;&nbsp;&nbsp;
+                                {{s["name"]}}
+                                 &nbsp;&nbsp;&nbsp;
+                                {% endfor %}
+                            </h5>
                         </div>
                     </div><!-- .st-skill-heading -->
                 </div>
             </div>
 
             <!-- Progressbar -->
-            <div class="col-lg-6">
-                <div class="st-height-b0 st-height-lg-b30"></div>
-                <div class="st-progressbar-wrap">
-                    {% for s in me.skills[0]["backend"] -%}
-                    <div class="st-single-progressbar">
-                        <div class="st-progressbar-heading">
-                            <h3 class="st-progressbar-title">{{s["name"]}}</h3>
-                            <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s"
-                                 data-wow-delay="0.5s">{{s["skill"]}}%
-                            </div>
-                        </div>
-                        <div class="st-progressbar" data-progress="{{s['skill']}}">
-                            <div class="st-progressbar-in wow fadeInLeft"></div>
-                        </div>
-                    </div><!-- .st-single-progressbar -->
-                    <div class="st-height-b30 st-height-lg-b20"></div>
-                    {% endfor %}
-
-
-                </div>
-            </div>
+            <!--            <div class="col-lg-6">-->
+            <!--                <div class="st-height-b0 st-height-lg-b30"></div>-->
+            <!--                <div class="st-progressbar-wrap">-->
+            <!--                    {% for s in me.skills[0]["backend"] -%}-->
+            <!--                    <div class="st-single-progressbar">-->
+            <!--                        <div class="st-progressbar-heading">-->
+            <!--                            <h3 class="st-progressbar-title">{{s["name"]}}</h3>-->
+            <!--                            <div class="st-progressbar-percentage wow fadeInLeft" data-wow-duration="1.5s"-->
+            <!--                                 data-wow-delay="0.5s">{{s["skill"]}}%-->
+            <!--                            </div>-->
+            <!--                        </div>-->
+            <!--                        <div class="st-progressbar" data-progress="{{s['skill']}}">-->
+            <!--                            <div class="st-progressbar-in wow fadeInLeft"></div>-->
+            <!--                        </div>-->
+            <!--                    </div>&lt;!&ndash; .st-single-progressbar &ndash;&gt;-->
+            <!--                    <div class="st-height-b30 st-height-lg-b20"></div>-->
+            <!--                    {% endfor %}-->
+            <!--                </div>-->
+            <!--            </div>-->
         </div>
 
     </div>
