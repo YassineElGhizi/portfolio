@@ -5,10 +5,23 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 import json
 from models.models import Me
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = [
+    "http://yassineelghizi.me",
+    "http://www.yassineelghizi.me",
+]
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/", response_class=HTMLResponse)
